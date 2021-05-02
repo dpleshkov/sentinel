@@ -21,6 +21,10 @@ require("dotenv").config();
         const report = auth.analyzeAuthLog(log);
         console.log(chalk.blue("auth.log report:"));
         console.log(chalk.red(`${report.failedIPs.size} IPs attempted a connection.`));
+        choice = prompt("Would you like to see those IPs?");
+        if (choice.toLowerCase().startsWith("y")) {
+            console.log(Array.from(report.failedIPs).join("\n"));
+        }
         console.log(chalk.greenBright(`${report.acceptedIPs.size} IPs successfully logged in. They are: ${Array.from(report.acceptedIPs).join(", ")}`));
         if (report.failedIPs.size > 10) {
             console.log(chalk.red("Random SSH connection attempts can be reduced by putting port 22 behind a firewall and only allowing certain IPs to connect."));
