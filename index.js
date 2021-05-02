@@ -42,7 +42,7 @@ require("dotenv").config();
     // Do port analysis
     choice = prompt("Would you like to perform a scan for open ports? y/N > ");
     if (choice.toLowerCase().startsWith("y")) {
-        console.log("Running port scan in range 0-65535");
+        console.log("Running port scan in range 0-49151");
         let scan = await util.portScan();
         let open = new Set();
         for (let port of scan) {
@@ -50,18 +50,21 @@ require("dotenv").config();
                 open.add(String(port.port));
             }
         }
-        let filtered = new Set();
+        let unfiltered = new Set();
         let ufw = await util.getUFWStatus();
         if (ufw.status === "enabled") {
             for (let port of ufw.ports) {
-                if (port.status === "DENY" || !port.from.includes("Anywhere")) {
-                    filtered.add(port.port);
+                if (port.status === "ALLOW" && port.from.includes("Anywhere")) {
+                    unfiltered.add(port.port);
                 }
             }
         }
         let both = new Set([...open].filter(x => filtered.has(x)));
-        let unfiltered = new Set([...open].filter(x => !filtered.has(x)));
         console.log(chalk.red(`Detected ${open.size} open ports, of which ${both.size} are either blocked or filtered by UFW firewall.`));
-        console.log(chalk.red(`Unfiltered ports: ${Array.from(unfiltered).join(", ")}`));
+        if (ufw.status === "enabled") {
+            console.log(chalk.red(`Allowed ports through UFW: ${Array.from(unfiltered).join(", ")}`));
+        } else {
+            console.log(chalk.red(`UFW Firewall is DISABLED. These ports remain open: ${Array.from(open).join(", ")}. Consider enabling the firewall with "sudo ufw enable"`));
+        }
     }
 })();

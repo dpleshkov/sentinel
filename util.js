@@ -31,7 +31,7 @@ let portScan = function() {
     return new Promise((resolve, reject) => {
         let scan = new evilscan({
             target:"127.0.0.1",
-            port:'0-65535',
+            port:'0-49151',
             status:'O', // Timeout, Refused, Open, Unreachable
             banner:false
         });
