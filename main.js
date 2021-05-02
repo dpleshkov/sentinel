@@ -101,6 +101,9 @@ console.log(chalk.blue("2 - auth.log scan (see who tried to connect remotely)"))
 console.log(chalk.blue("3 - port scan (see which ports are open, and how many are protected)"));
 console.log(chalk.blue("4 - general security questionnaire (asks questions )"));
 let choice = input("> ");
+if (choice === "") {
+    choice = "1";
+}
 if (!["1", "2", "3"].includes(choice)) {
     console.log(chalk.red("Invalid choice entered, exiting..."));
     process.exit();
