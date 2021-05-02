@@ -1,6 +1,6 @@
 const fs = require("fs");
 const chalk = require("chalk");
-const input = require("prompt-sync")();
+const prompt = require("prompt-sync")();
 const evilscan = require("evilscan");
 const exec = require("child_process").exec;
 const auth = require("./auth");
