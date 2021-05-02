@@ -18,6 +18,15 @@ let authLogScan = function(path) {
     console.log(chalk.yellow("You can set that up by running \"sudo ufw allow from <your ip> to any port 22 proto tcp\""));
 }
 
+let removeEmpty = function(arr) {
+    let output = [];
+    for (let item of arr) {
+        if (item !== "") {
+            output.push(item);
+        }
+    }
+    return output;
+}
 let portScan = function() {
     console.log("Running port scan on localhost in range 1-10000");
     let scan = new evilscan({
@@ -65,8 +74,7 @@ let portScan = function() {
             ufw.pop();
             let badlyAllowed = [];
             for (let line of ufw) {
-                console.log(line);
-                let info = line.split(" ");
+                let info = removeEmpty(line.split(" "));
                 if (info[1] === "ALLOW" && info[2] === "Anywhere") {
                     console.log(info);
                     badlyAllowed.push(info[0]);
