@@ -1,0 +1,583 @@
+{
+  "item": {
+    "scanner": "nmap",
+    "args": "nmap --host-timeout=120s -T4 -oX - -p1-1024  52.53.110.54",
+    "start": "1619923591",
+    "startstr": "Sat May 01 19:46:31 2021",
+    "version": "7.80",
+    "xmloutputversion": "1.04"
+  },
+  "scaninfo": [
+    {
+      "item": {
+        "type": "syn",
+        "protocol
+        ":"
+        tcp
+        ","
+        numservices
+        ":"
+        1024
+        ","
+        services
+        ":"
+        1-1024
+        "}}],"
+        verbose
+        ":[{"
+        item
+        ":{"
+        level
+        ":"
+        0
+        "}}],"
+        debugging
+        ":[{"
+        item
+        ":{"
+        level
+        ":"
+        0
+        "}}],"
+        host
+        ":[{"
+        item
+        ":{"
+        starttime
+        ":"
+        1619923602
+        ","
+        endtime
+        ":"
+        1619923603
+        "},"
+        status
+        ":[{"
+        item
+        ":{"
+        state
+        ":"
+        up
+        ","
+        re
+        ason
+        ":"
+        localhost-response
+        ","
+        reason_ttl
+        ":"
+        0
+        "}}],"
+        address
+        ":[{"
+        item
+        ":{"
+        addr
+        ":"
+        169.254.100.203
+        ","
+        addrtype
+        ":"
+        ipv4
+        "}}],"
+        hostnames
+        ":["
+        \
+        r
+        \
+        n
+        "],"
+        ports
+        ":[{"
+        extraports
+        ":[{"
+        item
+        ":{"
+        state
+        ":"
+        closed
+        ","
+        count
+        ":"
+        1020
+        "},"
+        extrareasons
+        ":[{"
+        item
+        ":{"
+        reason
+        ":"
+        resets
+        ","
+        count
+        ":"
+        1020
+        "}}]}],"
+        port
+        ":[{"
+        item
+        ":{"
+        protocol
+        ":"
+        tcp
+        ","
+        portid
+        ":"
+        135
+        "},"
+        state
+        ":[{"
+        item
+        ":{"
+        state
+        ":"
+        open
+        ","
+        reason
+        ":"
+        syn-ack
+        ","
+        reason_ttl
+        ":"
+        128
+        "}}],"
+        service
+        ":[{"
+        item
+        ":{"
+        name
+        ":"
+        msrpc
+        ","
+        method
+        ":"
+        table
+        ","
+        conf
+        ":"
+        3
+        "}}]},{"
+        item
+        ":{"
+        protocol
+        ":"
+        tcp
+        ","
+        portid
+        ":"
+        137
+        "},"
+        state
+        ":[{"
+        item
+        ":{"
+        state
+        ":"
+        filtered
+        ","
+        reason
+        ":"
+        no-response
+        ","
+        reason_ttl
+        ":"
+        0
+        "}}],"
+        service
+        ":[{"
+        item
+        ":{"
+        name
+        ":"
+        netbios-ns
+        ","
+        method
+        ":"
+        table
+        ","
+        conf
+        ":"
+        3
+        "}}]},{"
+        item
+        ":{"
+        protocol
+        ":"
+        tcp
+        ","
+        portid
+        ":"
+        139
+        "},"
+        state
+        ":[{"
+        item
+        ":{"
+        state
+        ":"
+        open
+        ","
+        reason
+        ":"
+        syn-ack
+        ","
+        reason_ttl
+        ":"
+        128
+        "}}],"
+        service
+        ":[{"
+        item
+        ":{"
+        name
+        ":"
+        netbios-ssn
+        ","
+        method
+        ":"
+        table
+        ","
+        conf
+        ":"
+        3
+        "}}]},{"
+        item
+        ":{"
+        protocol
+        ":"
+        tcp
+        ","
+        portid
+        ":"
+        445
+        "},"
+        state
+        ":[{"
+        item
+        ":{"
+        state
+        ":"
+        open
+        ","
+        reason
+        ":"
+        syn-ac
+        k
+        ","
+        reason_ttl
+        ":"
+        128
+        "}}],"
+        service
+        ":[{"
+        item
+        ":{"
+        name
+        ":"
+        microsoft-ds
+        ","
+        method
+        ":"
+        table
+        ","
+        conf
+        ":"
+        3
+        "}}]}]}],"
+        times
+        ":[{"
+        item
+        ":{"
+        srtt
+        ":"
+        404
+        ","
+        rttvar
+        ":"
+        524
+        ","
+        to
+        ":"
+        100000
+        "}}]},{"
+        item
+        ":{"
+        starttime
+        ":"
+        1619923597
+        ","
+        endtime
+        ":"
+        1619923609
+        "},"
+        status
+        ": [
+          {
+            "item": {
+              "state": "up",
+              "reason": "syn-ack",
+              "reason_ttl": "47"
+            }
+          }
+        ],
+        "address": [
+          {
+            "item": {
+              "addr": "52.53.110.54",
+              "addrtype": "ipv4"
+            }
+          }
+        ],
+        "hostnames": [
+          {
+            "hostname": [
+              {
+                "item": {
+                  "name": "ec2-52-53-110-54.us-west-1.compute.amazonaws.com",
+                  "type": "PTR"
+                }
+              }
+            ]
+          }
+        ],
+        "ports": [
+          {
+            "extraports": [
+              {
+                "item": {
+                  "state": "filtered",
+                  "count": "1020"
+                },
+                "extrareasons": [
+                  {
+                    "item": {
+                      "reason": "no-responses",
+                      "count": "1020"
+                    }
+                  }
+                ]
+              }
+            ],
+            "port": [
+              {
+                "item": {
+                  "protocol": "tcp",
+                  "portid": "22"
+                },
+                "state": [
+                  {
+                    "item": {
+                      "state": "open",
+                      "reason
+                      ":"
+                      syn-ack
+                      ","
+                      reason_ttl
+                      ":"
+                      47
+                      "}}],"
+                      service
+                      ":[{"
+                      item
+                      ":{"
+                      name
+                      ":"
+                      ssh
+                      ","
+                      method
+                      ":"
+                      table
+                      ","
+                      conf
+                      ":"
+                      3
+                      "}}]},{"
+                      item
+                      ":{"
+                      protocol
+                      ":"
+                      tcp
+                      ","
+                      portid
+                      ":"
+                      53
+                      "},"
+                      state
+                      ":[{"
+                      item
+                      ":{"
+                      state
+                      ":"
+                      open
+                      ","
+                      reason
+                      ":"
+                      syn-ack
+                      ","
+                      reason_ttl
+                      ":"
+                      47
+                      "}}],"
+                      service
+                      ":[{"
+                      item
+                      ":{
+                      "name": "domain",
+                      "method": "table",
+                      "conf": "3"
+                    }
+                  }
+                ]
+              },
+              {
+                "item": {
+                  "protocol": "tcp",
+                  "portid": "80"
+                },
+                "state": [
+                  {
+                    "item": {
+                      "state": "open",
+                      "reason": "syn-ack",
+                      "reason_ttl": "47"
+                    }
+                  }
+                ],
+                "service": [
+                  {
+                    "item": {
+                      "name": "http",
+                      "method": "table",
+                      "conf": "3"
+                    }
+                  }
+                ]
+              },
+              {
+                "it
+                em
+                ":{"
+                protocol
+                ":"
+                tcp
+                ","
+                portid
+                ":"
+                443
+                "},"
+                state
+                ":[{"
+                item
+                ":{"
+                state
+                ":"
+                open
+                ","
+                reason
+                ":"
+                syn-ack
+                ","
+                reason_ttl
+                ":"
+                47
+                "}}],"
+                service
+                ":[{"
+                item
+                ":{"
+                name
+                ":"
+                https
+                ","
+                method
+                ":"
+                table
+                ","
+                conf
+                ":"
+                3
+                "}}]}]}],"
+                times
+                ":[{"
+                item
+                ":{"
+                srtt
+                ":"
+                16283
+                ","
+                rttvar
+                ":"
+                13691
+                ","
+                to
+                ":"
+                100000
+                "}}]}],"
+                runstats
+                ":[{"
+                finished
+                ":[{"
+                item
+                ":{"
+                time
+                ":"
+                1619923609
+                ","
+                timestr
+                ":"
+                Sat
+                May
+                01
+                19: 46
+                :
+                49
+                2021
+                ","
+                elapsed
+                ":"
+                18.18
+                ","
+                summary
+                ":"
+                Nmap
+                done
+                at
+                Sat
+                May
+                01
+                19: 46
+                :
+                49
+                2021
+                ;
+                2
+                IP
+                addresses
+                (2
+                hosts
+                up)
+                scanned
+                in
+                18.18
+                seconds
+                ","
+                exit
+                ":"
+                success
+                "}}],"
+                hosts
+                ":[{"
+                item
+                ":{"
+                up
+                ":"
+                2
+                ","
+                down
+                ":"
+                0
+                ","
+                total
+                ":"
+                2
+                "}}]}]}
