@@ -1,2 +1,2 @@
-sudo apt-get install clamav nodejs npm
+sudo apt-get install ufw nodejs npm
 npm install
