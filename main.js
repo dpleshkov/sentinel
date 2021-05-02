@@ -60,13 +60,15 @@ let portScan = function() {
                 console.log(chalk.red(`${open.length} open ports. UFW firewall is inactive, please consider enabling it through "sudo ufw enable"`));
                 return;
             }
-            ufw = ufw.slice(3);
+            ufw = ufw.slice(4);
+            ufw.pop();
             ufw.pop();
             let badlyAllowed = [];
             for (let line of ufw) {
                 console.log(line);
                 let info = line.split(" ");
                 if (info[1] === "ALLOW" && info[2] === "Anywhere") {
+                    console.log(info);
                     badlyAllowed.push(info[0]);
                 }
             }
@@ -84,7 +86,7 @@ console.log(chalk.blue("1 - All Scans (default)"));
 console.log(chalk.blue("2 - auth.log scan (see who tried to connect remotely)"));
 console.log(chalk.blue("3 - port scan (see which ports are open, and how many are protected)"));
 let choice = input("> ");
-if (!["1", "2"].includes(choice)) {
+if (!["1", "2", "3"].includes(choice)) {
     console.log(chalk.red("Invalid choice entered, exiting..."));
     process.exit();
 }
