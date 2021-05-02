@@ -63,12 +63,17 @@ require("dotenv").config();
             }
         }
         let both = new Set([...open].filter(x => filtered.has(x)));
-        console.log(chalk.red(`Detected ${open.size} open ports, of which ${both.size} are either blocked or filtered by UFW firewall.`));
+        console.log(chalk.red(`Detected ${open.size} open ports, of which ${both.size} are either explicitly blocked or filtered by UFW firewall.`));
         if (ufw.status === "enabled") {
             console.log(chalk.red(`Allowed ports through UFW: ${Array.from(unfiltered).join(", ")}`));
         } else {
             console.log(chalk.red(`UFW Firewall is DISABLED. These ports remain open: ${Array.from(open).join(", ")}. Consider enabling the firewall with "sudo ufw enable"`));
         }
         console.log(chalk.yellow(`Detected ports: ${Array.from(open).join(", ")}`));
+        console.log(chalk.blue(`Remember, to allow a port through the firewall, use "sudo ufw allow <port>". To deny, use "sudo ufw deny <port>"`));
+    }
+    choice = prompt("Finally, would you like to run ClamAV's open source antivirus scan? y/N > ");
+    if (choice.toLowerCase().startsWith("y")) {
+        console.log(chalk.blue(`Antivirus scan is done by launching a different program. Run "bash antivirus.bash" to do that.`));
     }
 })();
