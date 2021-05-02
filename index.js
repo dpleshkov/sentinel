@@ -51,11 +51,14 @@ require("dotenv").config();
             }
         }
         let unfiltered = new Set();
+        let filtered = new Set();
         let ufw = await util.getUFWStatus();
         if (ufw.status === "enabled") {
             for (let port of ufw.ports) {
                 if (port.status === "ALLOW" && port.from.includes("Anywhere")) {
                     unfiltered.add(port.port);
+                } else {
+                    filtered.add(port.port);
                 }
             }
         }
