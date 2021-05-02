@@ -1,4 +1,4 @@
-let analyzeAuthLog = async function(fileData) {
+let analyzeAuthLog = function(fileData) {
     let ips = new Set();
     let failedIPs = new Set();
     let acceptedIPs = new Set();
@@ -20,9 +20,8 @@ let analyzeAuthLog = async function(fileData) {
     }
     return {
         IPs: ips,
-        failedIPs: failedIPs,
+        failedIPs: new Set([...ips].filter(x => !acceptedIPs.has(x))),
         acceptedIPs: acceptedIPs,
-        neitherIPs: new Set([...ips].filter(x => !failedIPs.has(x)))
     };
 }
 
