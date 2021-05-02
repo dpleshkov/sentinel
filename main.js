@@ -64,6 +64,7 @@ let portScan = function() {
             ufw.pop();
             let badlyAllowed = [];
             for (let line of ufw) {
+                console.log(line);
                 let info = line.split(" ");
                 if (info[1] === "ALLOW" && info[2] === "Anywhere") {
                     badlyAllowed.push(info[0]);
