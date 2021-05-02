@@ -1,2 +1,2 @@
-sudo apt-get instal clamav nodejs npm
+sudo apt-get install clamav nodejs npm
 npm install
