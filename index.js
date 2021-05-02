@@ -21,7 +21,7 @@ require("dotenv").config();
         const report = auth.analyzeAuthLog(log);
         console.log(chalk.blue("auth.log report:"));
         console.log(chalk.red(`${report.failedIPs.size} IPs attempted a connection.`));
-        choice = prompt("Would you like to see those IPs?");
+        choice = prompt("Would you like to see those IPs? y/N > ");
         if (choice.toLowerCase().startsWith("y")) {
             console.log(Array.from(report.failedIPs).join("\n"));
         }
