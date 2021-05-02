@@ -8,7 +8,7 @@ require("dotenv").config();
 
 let authLogScan = function(path) {
     console.log("Reading auth.log...");
-    const log = fs.readFileSync('./auth.log', {encoding:'utf8', flag:'r'});
+    const log = fs.readFileSync(path, {encoding:'utf8', flag:'r'});
     console.log("Getting report...");
     const report = auth.analyzeAuthLog(log);
     console.log(chalk.blue("auth.log report:"));
@@ -80,7 +80,13 @@ let portScan = function() {
                     badlyAllowed.push(info[0]);
                 }
             }
-            console.log(chalk.red(`${open.length} open ports. UFW firewall is active, however ports ${badlyAllowed.join(", ")} are allowed from anywhere.`));
+            if (badlyAllowed.length > 0) {
+                console.log(chalk.red(`${open.length} open ports. UFW firewall is active, however port(s) ${badlyAllowed.join(", ")} are allowed from anywhere.`));
+            } else {
+                console.log(chalk.greenBright(`${open.length} open ports, however all of them are under UFW firewall :)`));
+            }
+            console.log(chalk.yellow("If ports are intentionally open to the world (for instance, if you got a website running), this is usually"));
+            console.log(chalk.yellow("nothing to worry about. However, for best security practices, block or whitelist as many ports as possible."));
         });
     });
 
@@ -93,6 +99,7 @@ console.log(chalk.blue("Which operation would you like to perform?"));
 console.log(chalk.blue("1 - All Scans (default)"));
 console.log(chalk.blue("2 - auth.log scan (see who tried to connect remotely)"));
 console.log(chalk.blue("3 - port scan (see which ports are open, and how many are protected)"));
+console.log(chalk.blue("4 - general security questionnaire (asks questions )"));
 let choice = input("> ");
 if (!["1", "2", "3"].includes(choice)) {
     console.log(chalk.red("Invalid choice entered, exiting..."));
