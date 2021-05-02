@@ -69,5 +69,6 @@ require("dotenv").config();
         } else {
             console.log(chalk.red(`UFW Firewall is DISABLED. These ports remain open: ${Array.from(open).join(", ")}. Consider enabling the firewall with "sudo ufw enable"`));
         }
+        console.log(chalk.yellow(`Detected ports: ${Array.from(open).join(", ")}`));
     }
 })();
