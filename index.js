@@ -16,7 +16,7 @@ require("dotenv").config();
     choice = prompt("Would you like to perform a scan of your auth.log to see SSH connection attempts? y/N > ");
     if (choice.toLowerCase().startsWith("y")) {
         console.log("Reading auth.log...");
-        const log = fs.readFileSync(path, {encoding:'utf8', flag:'r'});
+        const log = fs.readFileSync("/var/log/auth.log", {encoding:'utf8', flag:'r'});
         console.log("Getting report...");
         const report = auth.analyzeAuthLog(log);
         console.log(chalk.blue("auth.log report:"));
