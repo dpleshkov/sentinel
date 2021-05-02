@@ -32,8 +32,9 @@ require("dotenv").config();
             choice = prompt("Would you like to do that? y/N > ");
             if (choice.toLowerCase().startsWith("y")) {
                 let userIP = util.grabIP((await util.run("who am i|awk '{ print $5}'")).stdout);
+                userIP = Array.from(report.acceptedIPs)[0];
                 console.log(chalk.yellowBright(`We think your home IP is ${userIP}. Would you like to hide SSH port 22 from anyone but ${userIP}?`));
-                console.log(chalk.redBright(`WARNING: THIS ACTION MAY RESULT IN YOUR MACHINE BECOMING UNREACHABLE`));
+                console.log(chalk.redBright(`WARNING: THIS ACTION MAY RESULT IN YOUR MACHINE BECOMING UNREACHABLE. ONLY TYPE YES IF SUGGESTED IP IS REALLY YOUR IP`));
                 choice = prompt("Are you sure? y/N > ");
                 if (choice.toLowerCase().startsWith("y")) {
                     console.log((await util.run(`sudo ufw allow from ${userIP} to any port 22 proto tcp`)).stdout);
