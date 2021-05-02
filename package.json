@@ -1,0 +1,11 @@
+{
+  "name": "sentinel",
+  "version": "1.0.0",
+  "description": "Intelligent basic security analyzer for Linux servers",
+  "main": "main.js",
+  "scripts": {
+    "test": "node main.js"
+  },
+  "author": "Dmitry Pleshkov",
+  "license": "UNLICENSED"
+}
