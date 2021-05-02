@@ -76,7 +76,6 @@ let portScan = function() {
             for (let line of ufw) {
                 let info = removeEmpty(line.split(" "));
                 if (info[1] === "ALLOW" && info[2] === "Anywhere") {
-                    console.log(info);
                     badlyAllowed.push(info[0]);
                 }
             }
@@ -99,7 +98,6 @@ console.log(chalk.blue("Which operation would you like to perform?"));
 console.log(chalk.blue("1 - All Scans (default)"));
 console.log(chalk.blue("2 - auth.log scan (see who tried to connect remotely)"));
 console.log(chalk.blue("3 - port scan (see which ports are open, and how many are protected)"));
-console.log(chalk.blue("4 - general security questionnaire (asks questions )"));
 let choice = input("> ");
 if (choice === "") {
     choice = "1";
