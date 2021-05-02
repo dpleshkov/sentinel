@@ -109,9 +109,9 @@ if (!["1", "2", "3"].includes(choice)) {
     process.exit();
 }
 if (choice === "1" || choice === "2") {
-    let path = input("Enter path to auth.log file (default: /etc/var/auth.log) > ");
+    let path = input("Enter path to auth.log file (default: /var/log/auth.log) > ");
     if (path === "") {
-        path = "/etc/var/auth.log";
+        path = "/var/log/auth.log";
     }
     authLogScan(path);
 }
